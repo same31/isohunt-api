@@ -34,18 +34,19 @@ API functions
 
 ### isohuntApi.search(searchString[, options])
 
-Search and return the list of torrent files found by isohunt.to.
+Searches and returns the list of torrent files found by isohunt.to.
 
 The list is limited to one page of results, 40 items max. It is sorted by seeders count in descending order by default.
 
 #### Parameters
 
 + **searchString**: The search string
-+ **options** *(optional)*: Object containing following optional keys
++ **options** *(optional)*: Object containing following optional properties:
     - **page** *(optional)*: Integer. Query a specific page of results. Default *1*.
     - **order** *(optional)*: String. *created_at*, *size*, *seeders*. Default *seeders*.
-    - **by** *(optional)*: String. *ASC* or *DESC*. Default *DESC*
+    - **by** *(optional)*: String. *ASC* or *DESC*. Default *DESC*.
     - **category** *(optional)*: String. Limit search to a category. Default not specified, search in all categories.
+    - **verified** *(optional)*: Boolean. Limit search to verified only torrents. Default *false*.
 
 Category list is the following: *tv*, *movies*, *music*, *games*, *software*, *books*, *adult*, *other*.
 
@@ -54,12 +55,12 @@ Category list is the following: *tv*, *movies*, *music*, *games*, *software*, *b
 
 Returns a promise which is resolved when the search is complete.
 
-This promise returns a list of objects containing the isohunt torrent info url, title, verified status, size, seeders count and rating url.
+This promise returns a list of objects containing the isohunt torrent info url, title, verified status, size, seeders count and rating.
 
 
 ### isohuntApi.getTorrentUrl(torrentInfoUrl)
 
-Return a torrent file url providing an info url.
+Returns a torrent file url providing an info url.
 
 
 #### Parameters
@@ -76,7 +77,7 @@ This promise returns the torrent url string.
 
 ### isohuntApi.getMagnetUrl(torrentInfoUrl)
 
-Return a magnet url providing an info url.
+Returns a magnet url providing an info url.
 
 
 #### Parameters
@@ -93,7 +94,7 @@ This promise returns the magnet url string.
 
 ### isohuntApi.getDownloadUrls(torrentInfoUrl)
 
-Return an object containing the magnet and the torrent file urls providing an info url.
+Returns an object containing the magnet and the torrent file urls providing an info url.
 
 
 #### Parameters
