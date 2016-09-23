@@ -17,7 +17,7 @@ Usage example
 Search torrent files for South Park season 19 episode 6.
 
 ```javascript
-var isohuntApi = require('risohunt-api');
+var isohuntApi = require('isohunt-api');
 isohuntApi.search('South Park S19E06', { category: 'tv' }).then(torrentList => {
     torrentList.forEach(torrentInfo => {
         isohuntApi.getTorrentUrl(torrentInfo.infoUrl).then(torrentUrl => {
@@ -72,3 +72,37 @@ Return a torrent file url providing an info url.
 Returns a promise which is resolved when the torrent url is found.
 
 This promise returns the torrent url string.
+
+
+### isohuntApi.getMagnetUrl(torrentInfoUrl)
+
+Return a magnet url providing an info url.
+
+
+#### Parameters
+
++ **torrentInfoUrl**: A torrent info url (This is found in each object of the list returned by isohuntApi.search())
+
+
+#### Return value
+
+Returns a promise which is resolved when the magnet url is found.
+
+This promise returns the magnet url string.
+
+
+### isohuntApi.getDownloadUrls(torrentInfoUrl)
+
+Return an object containing the magnet and the torrent file urls providing an info url.
+
+
+#### Parameters
+
++ **torrentInfoUrl**: A torrent info url (This is found in each object of the list returned by isohuntApi.search())
+
+
+#### Return value
+
+Returns a promise which is resolved when the magnet and torrent file urls are found.
+
+This promise returns an object with *magnetUrl* and *torrentUrl* properties.
